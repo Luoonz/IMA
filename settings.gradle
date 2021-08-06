@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Total_Project_1"
