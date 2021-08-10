@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.room.Room
+import luoonz.self.total_project_1.model.User
 
 class LoginActivity : AppCompatActivity() {
 
@@ -65,29 +67,29 @@ class LoginActivity : AppCompatActivity() {
         var customDialogViews = layoutInflater.inflate(R.layout.dialog_join, null)
         builder.setView(customDialogViews)
 
-        var listener = DialogInterface.OnClickListener{ p0, _ ->
-            var alert = p0 as AlertDialog
-            var idEdt : EditText? = alert.findViewById<EditText>(R.id.joinId)
-            var pwEdt : EditText? = alert.findViewById<EditText>(R.id.joinPw)
-            var nameEdt : EditText? = alert.findViewById<EditText>(R.id.joinName)
 
+        var idEdt : EditText? = customDialogViews.findViewById<EditText>(R.id.joinId)
+        var pwEdt : EditText? = customDialogViews.findViewById<EditText>(R.id.joinPw)
+        var nameEdt : EditText? = customDialogViews.findViewById<EditText>(R.id.joinName)
 
-            TODO( "EditText 값들 DB에 넣어주기")
+        val okBtn : Button = customDialogViews.findViewById(R.id.joinOkBtn)
+        okBtn.setOnClickListener {
+            Thread(Runnable {
+                db.userDao().insertUser(User(null, idEdt.toString(), pwEdt.toString(), nameEdt.toString()))
+            }).start()
         }
+
+        val cancelBtn : Button = customDialogViews.findViewById(R.id.joinCancelBtn)
+        cancelBtn.setOnClickListener {
+
+        }
+
+        TODO( "EditText 값들 DB에 넣어주기")
 
         var dialog = builder.create()
         dialog.window?.setBackgroundDrawable(ColorDrawable(0x00000000))
 
-        val okBtn : Button? = builder.
-        val cancelBtn :Button? = dialog.window?.findViewById<Button>(R.id.joinCancelBtn)
 
-        okBtn!!.setOnClickListener {
-            Toast.makeText(this, "HI", Toast.LENGTH_SHORT).show()
-        }
-
-        cancelBtn!!.setOnClickListener {
-            dialog.dismiss()
-        }
 
         dialog.show()
 
