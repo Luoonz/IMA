@@ -9,8 +9,8 @@ import java.util.*
 data class BMIHistory(
     @PrimaryKey
     val uid: Int?,
-    @ColumnInfo(name = "date") val date: String?,
-    @ColumnInfo(name = "height") val height: Float?,
-    @ColumnInfo(name = "weight") val weight: Float?,
-    @ColumnInfo(name = "bmi") val bmi: String?
+    @ColumnInfo(name = "date") val date: String,
+    @ColumnInfo(name = "height") val height: Float,
+    @ColumnInfo(name = "weight") val weight: Float,
+    @ColumnInfo(name = "bmi") val bmi: String
 )

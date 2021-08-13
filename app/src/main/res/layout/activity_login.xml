@@ -18,6 +18,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo540" />
 
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.3"/>
+
     <LinearLayout
         android:id="@+id/LoginLinear"
         android:layout_width="match_parent"
@@ -50,6 +63,9 @@
                 android:id="@+id/loginIdEdt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:singleLine="true"
+                android:nextFocusDown="@id/loginPwdEdt"
                 android:layout_weight="3" />
 
         </LinearLayout>
@@ -76,32 +92,26 @@
                 android:id="@+id/loginPwdEdt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:imeOptions="actionGo"
+                android:nextFocusDown="@id/loginOkBtn"
                 android:layout_weight="3" />
 
         </LinearLayout>
 
-        <LinearLayout
+
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/loginAutoChk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:fontFamily="@font/rixyeoljeongdo_regular"
+            android:text="@string/autoLogin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/rixyeoljeongdo_regular"
-                android:text="@string/autoLogin"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

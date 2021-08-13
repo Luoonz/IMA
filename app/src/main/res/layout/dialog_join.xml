@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@drawable/join_dialog_background"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:text="@string/join"
-            android:textSize="30sp"
-            android:gravity="center"
             android:background="@drawable/join_dialog_title_backgroudn"
             android:fontFamily="@font/rixyeoljeongdo_regular"
-            />
+            android:gravity="center"
+            android:text="@string/join"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@color/gray"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        />
+        android:background="@color/gray" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,15 +48,18 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rixyeoljeongdo_regular"
                 android:gravity="right"
+                android:letterSpacing="0.2"
                 android:text="@string/id"
-                android:textColor="@color/Darkgray"
-                android:letterSpacing="0.2" />
+                android:textColor="@color/Darkgray" />
 
             <EditText
                 android:id="@+id/joinId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:layout_weight="3"
+                android:imeOptions="actionGo"
+                android:nextFocusDown="@id/joinPw"
+                android:singleLine="true" />
 
         </LinearLayout>
 
@@ -79,13 +78,16 @@
                 android:gravity="right"
                 android:letterSpacing="0.2"
                 android:text="@string/pw"
-                android:textColor="@color/Darkgray"/>
+                android:textColor="@color/Darkgray" />
 
             <EditText
                 android:id="@+id/joinPw"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:layout_weight="3"
+                android:imeOptions="actionGo"
+                android:nextFocusDown="@id/joinName"
+                android:singleLine="true" />
 
         </LinearLayout>
 
@@ -104,13 +106,16 @@
                 android:gravity="right"
                 android:letterSpacing="0.2"
                 android:text="@string/names"
-                android:textColor="@color/Darkgray"/>
+                android:textColor="@color/Darkgray" />
 
             <EditText
                 android:id="@+id/joinName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:layout_weight="3"
+                android:imeOptions="actionGo"
+                android:nextFocusDown="@id/joinOkBtn"
+                android:singleLine="true" />
 
         </LinearLayout>
 
@@ -119,41 +124,37 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@color/gray"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        />
+        android:background="@color/gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/joinOkBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/okBtn"
-            android:textColor="@color/Darkgray"
-            android:fontFamily="@font/rixyeoljeongdo_regular"
-            android:background="@drawable/join_dialog_left_btn_background"
             android:layout_marginRight="2.5dp"
-            />
+            android:layout_weight="1"
+            android:background="@drawable/join_dialog_left_btn_background"
+            android:fontFamily="@font/rixyeoljeongdo_regular"
+            android:text="@string/okBtn"
+            android:textColor="@color/Darkgray" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/joinCancelBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="2.5dp"
-            android:textColor="@color/Darkgray"
+            android:layout_weight="1"
+            android:background="@drawable/join_dialog_right_btn_background"
             android:fontFamily="@font/rixyeoljeongdo_regular"
             android:text="@string/cancelBtn"
-            android:background="@drawable/join_dialog_right_btn_background"
-            />
+            android:textColor="@color/Darkgray" />
 
 
     </LinearLayout>

@@ -7,7 +7,7 @@ import luoonz.self.total_project_1.dao.UserDao
 import luoonz.self.total_project_1.model.BMIHistory
 import luoonz.self.total_project_1.model.User
 
-@Database(entities = [User::class, BMIHistory::class], version = 1)
+@Database(entities = [User::class, BMIHistory::class], version = 2)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun userDao() : UserDao
     abstract fun bmiDao() : BMIHistoryDao

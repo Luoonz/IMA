@@ -1,6 +1,7 @@
 package luoonz.self.total_project_1.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import luoonz.self.total_project_1.model.User
@@ -18,4 +19,10 @@ interface UserDao {
 
     @Query("Select * from user where id like:id and pw like:pw")
     fun loginUser(id: String, pw: String):List<User>
+
+    @Query("Select * from user")
+    fun getAllUser():List<User>
+
+    @Query("Delete from user")
+    fun deleteAll()
 }
